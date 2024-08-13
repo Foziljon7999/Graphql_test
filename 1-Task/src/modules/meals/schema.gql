@@ -1,0 +1,39 @@
+type Query {
+		meals: [Meal]
+		
+	}
+
+type Meal {
+		id: ID!
+		name: String
+		price: Int
+		quantity: Int
+        categories: Category
+        category: Category
+		
+	}
+
+input createMealInput {
+    name: String
+	price: Int
+	quantity: Int
+    category_id: Int
+}
+
+input updateMealInput {
+    id: ID!
+    name: String
+	price: Int
+	quantity: Int
+    category_id: Int
+}
+
+input deleteMealInput {
+    id: ID!
+}
+
+type Mutation {
+    createMeal(input: createMealInput): [Meal]
+    updateMeal(input: updateMealInput): [Meal]
+    deleteMeal(input: deleteMealInput): [Meal]
+}
